@@ -1,7 +1,6 @@
 // =============================================================
 // FILE: main.cpp
 // PURPOSE: Handles User Input, Menus, and File Reading/Writing
-// AUTHOR: Gemini (Assisting You)
 // =============================================================
 
 #include <iostream>
@@ -208,4 +207,5 @@ int main()
         }
     }
     return 0;
+
 }
