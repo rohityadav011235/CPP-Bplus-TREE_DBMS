@@ -29,11 +29,11 @@ This project implements a **B+ Tree** for indexing and uses a **File System** fo
 
 ### 1. Data Entry & Input Validation
 *The clean CLI interface allows users to add student records. The system handles input validation to prevent crashes (e.g., ensuring IDs are numbers).*
-![Input Demo](demo_input.png)
+![Input Demo](demo_input.png.png)
 
 ### 2. B+ Tree Visualization & Search
 *The "Show Tree" feature visualizes the balanced structure in memory. The Search function then uses this index to instantly locate and retrieve the persistent student file.*
-![Tree and Search Demo](demo_tree_search.png)
+![Tree and Search Demo](demo_tree_search.png.png)
 
 ---
 
@@ -47,30 +47,28 @@ This system separates **Indexing** from **Data Storage** to maximize efficiency.
 
 ```mermaid
 graph TD
-    %% Define styles for concepts from uploaded images
+    %% Styling
     classDef internalNode fill:#f96,stroke:#333,stroke-width:2px,color:white;
     classDef leafNode fill:#aaddff,stroke:#333,color:black;
     classDef fileSystem fill:#eee,stroke:#999,stroke-dasharray: 5 5;
 
-    %% The Current Root (Navigation)
-    Root((Root: 333 | 666)):::internalNode
+    %% Root Node (Quoted to fix PIPE error)
+    Root(("Root: 333 | 666")):::internalNode
 
-    %% The Current Leaves (Data Holders)
+    %% Leaf Nodes
     L1[Leaf: 111, 222]:::leafNode
     L2[Leaf: 444, 555]:::leafNode
     L3[Leaf: 777, 888, 999, 1000]:::leafNode
 
-    %% Navigation Logic (Contextual to project data)
+    %% Connections
     Root -->|Keys < 333| L1
     Root -->|Keys 333-666| L2
     Root -->|Keys > 666| L3
 
-    %% Leaf Node Linking (Theoretical concept applied to project)
+    %% Leaf Links
     L1 -.-> L2
     L2 -.-> L3
 
-    %% Link to persistent storage example
-    File1(📄 111.txt):::fileSystem
-    File2(📄 1000.txt):::fileSystem
+    %% Files
+    File1(File: 111.txt):::fileSystem
     L1 --- File1
-    L3 --- File2
